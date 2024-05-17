@@ -1,9 +1,9 @@
 name: Windows
 
 on:
-  pull_request:
+  push:
     branches:
-      - dev
+      - test
 
 jobs:
   build:
@@ -35,7 +35,7 @@ jobs:
 
       - name: Tests
         run: |
-          git clone https://github.com/xmake-io/xmake.git --recurse-submodules -b master xmakesrc
+          git clone https://github.com/xmake-io/xmake.git --recurse-submodules -b cmake xmakesrc
           cd xmakesrc/core
           xmake
           cd ../..
